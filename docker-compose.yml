@@ -1,0 +1,16 @@
+services:
+  client:
+    build: ./client
+    ports:
+    - "9001:9001"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+  
+  server:
+    build: ./server
+    ports:
+      - "9000:9000"
+    volumes:
+     - ./server:/app
+     - /app/node_modules
