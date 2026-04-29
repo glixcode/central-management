@@ -23,8 +23,8 @@ const Login = () => {
 
     return (
         <div className={`w-full gap-4 h-screen justify-content-center items-center`} 
-        style={{display:'flex',gap:'4px',height:'95VH', justifyContent:'center',alignItems:"center",backgroundColor:'#f5f5f5'}}>
-            <form className="flex flex-col max-w-xl mx-auto" style={{display:'flex', flexDirection:'column',width:'100%', maxWidth:'30%',margin:"0 auto", gap:15,padding:'30px',borderRadius:'10px',border:'1px solid gray'}}>
+        style={{display:'flex',gap:'4px',position:'fixed',top:0,left:0,width:'100%',height:'100%', justifyContent:'center',alignItems:"center",backgroundColor:'#333'}}>
+            <form className="flex flex-col max-w-xl mx-auto" style={{display:'flex',background:'#f5f5f5', flexDirection:'column',width:'100%', maxWidth:'20%',margin:"0 auto", gap:15,padding:'30px',borderRadius:'10px',border:'1px solid gray'}}>
                 <div style={{display:'flex',flexDirection:'column',gap:10}}>
                     <label htmlFor="email" style={{fontWeight:600}}>Email</label>
                     <input type="text" onChange={(e)=>handleChange('email',e.target.value)} placeholder="Email" autoComplete="off" style={{width:'100%',padding:'12px 5px',borderRadius:7, outline:'none',border:'1px solid #ccc'}}/>
