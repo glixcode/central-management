@@ -88,11 +88,12 @@ const Register = () => {
 
     const inputStyle: React.CSSProperties = {
         width: "100%",
-        padding: "12px 8px",
-        borderRadius: 7,
+        padding: "12px 16px",
+        borderRadius: 8,
         outline: "none",
-        border: "1px solid #ccc",
+        border: "1px solid #d1d5db",
         boxSizing: "border-box",
+        transition: 'border-color 0.2s',
     };
 
     const fieldGroupStyle: React.CSSProperties = {
@@ -101,7 +102,7 @@ const Register = () => {
         gap: 8,
     };
 
-    const labelStyle: React.CSSProperties = { fontWeight: 600 };
+    const labelStyle: React.CSSProperties = { fontWeight: 600, color: '#374151' };
 
     return (
         <div
@@ -114,7 +115,7 @@ const Register = () => {
                 height: "100%",
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "#333",
+                backgroundColor: "#111827",
                 overflowY: "auto",
                 padding: "20px 0",
             }}
@@ -122,24 +123,26 @@ const Register = () => {
             <form
                 style={{
                     display: "flex",
-                    background: "#f5f5f5",
+                    background: "#ffffff",
                     flexDirection: "column",
                     width: "100%",
-                    maxWidth: 420,
+                    maxWidth: 400,
                     margin: "auto",
-                    gap: 14,
-                    padding: 30,
-                    borderRadius: 10,
-                    border: "1px solid gray",
+                    gap: 15,
+                    padding: 40,
+                    borderRadius: 16,
+                    border: "none",
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)'
                 }}
                 onSubmit={(e) => e.preventDefault()}
             >
                 <h1
                     style={{
                         textAlign: "center",
-                        fontWeight: 700,
+                        fontWeight: 800,
                         textTransform: "uppercase",
                         margin: 0,
+                        color: 'var(--purple-primary)'
                     }}
                 >
                     Register
@@ -148,12 +151,13 @@ const Register = () => {
                 {error && (
                     <div
                         style={{
-                            background: "#fdecea",
-                            color: "#b71c1c",
+                            background: "var(--red-secondary)",
+                            color: "white",
                             padding: "10px 12px",
                             borderRadius: 6,
-                            border: "1px solid #f5c6cb",
+                            textAlign: "center",
                             fontSize: 14,
+                            fontWeight: 600
                         }}
                     >
                         {error}
@@ -163,12 +167,13 @@ const Register = () => {
                 {success && (
                     <div
                         style={{
-                            background: "#e6f4ea",
-                            color: "#1e4620",
+                            background: "var(--teal-primary)",
+                            color: "white",
                             padding: "10px 12px",
                             borderRadius: 6,
-                            border: "1px solid #c3e6cb",
+                            textAlign: "center",
                             fontSize: 14,
+                            fontWeight: 600
                         }}
                     >
                         {success}
@@ -185,6 +190,8 @@ const Register = () => {
                         placeholder="Full name"
                         autoComplete="name"
                         style={inputStyle}
+                        onFocus={(e) => e.target.style.borderColor = 'var(--purple-primary)'}
+                        onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
                     />
                 </div>
 
@@ -198,6 +205,8 @@ const Register = () => {
                         placeholder="Street, City, Country"
                         autoComplete="street-address"
                         style={inputStyle}
+                        onFocus={(e) => e.target.style.borderColor = 'var(--purple-primary)'}
+                        onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
                     />
                 </div>
 
@@ -211,6 +220,8 @@ const Register = () => {
                         placeholder="you@example.com"
                         autoComplete="email"
                         style={inputStyle}
+                        onFocus={(e) => e.target.style.borderColor = 'var(--purple-primary)'}
+                        onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
                     />
                 </div>
 
@@ -224,6 +235,8 @@ const Register = () => {
                         placeholder="+1 555 123 4567"
                         autoComplete="tel"
                         style={inputStyle}
+                        onFocus={(e) => e.target.style.borderColor = 'var(--purple-primary)'}
+                        onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
                     />
                 </div>
 
@@ -237,6 +250,8 @@ const Register = () => {
                         placeholder="At least 6 characters"
                         autoComplete="new-password"
                         style={inputStyle}
+                        onFocus={(e) => e.target.style.borderColor = 'var(--purple-primary)'}
+                        onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
                     />
                 </div>
 
@@ -250,6 +265,8 @@ const Register = () => {
                         placeholder="Re-enter password"
                         autoComplete="new-password"
                         style={inputStyle}
+                        onFocus={(e) => e.target.style.borderColor = 'var(--purple-primary)'}
+                        onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
                     />
                 </div>
 
@@ -258,24 +275,28 @@ const Register = () => {
                     onClick={handleRegister}
                     disabled={loading}
                     style={{
-                        padding: 12,
+                        padding: 14,
                         outline: "none",
                         border: "none",
                         borderRadius: 8,
                         cursor: loading ? "not-allowed" : "pointer",
                         marginTop: 12,
-                        backgroundColor: loading ? "#6c8c6c" : "green",
+                        backgroundColor: loading ? "#9ca3af" : "var(--purple-primary)",
                         color: "white",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
+                        fontWeight: 700,
+                        fontSize: 16,
+                        transition: 'background-color 0.2s',
+                        boxShadow: '0 4px 6px rgba(160, 90, 255, 0.25)'
                     }}
+                    onMouseOver={(e) => { if (!loading) e.currentTarget.style.backgroundColor = 'var(--purple-secondary)' }}
+                    onMouseOut={(e) => { if (!loading) e.currentTarget.style.backgroundColor = 'var(--purple-primary)' }}
                 >
                     {loading ? "Registering..." : "Register"}
                 </button>
 
-                <p style={{ textAlign: "center", margin: 0, fontSize: 14 }}>
+                <p style={{ textAlign: "center", margin: 0, fontSize: 14, color: '#6b7280' }}>
                     Already have an account?{" "}
-                    <Link to="/login" style={{ color: "green", fontWeight: 600 }}>
+                    <Link to="/login" style={{ color: "var(--teal-primary)", fontWeight: 700, textDecoration: 'none' }}>
                         Login
                     </Link>
                 </p>
