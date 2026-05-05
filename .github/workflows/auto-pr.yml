@@ -1,4 +1,4 @@
-name: Auto Create PR on Push
+name: Auto Create PR on Feature Branch Push
 
 on:
   push:
@@ -9,16 +9,28 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
 
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Check if PR already exists
+        id: check
+        run: |
+          gh pr list --head "${{ github.ref_name }}" --json number --jq 'length' > result.txt
+          echo "exists=$(cat result.txt)" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Pull Request
+        if: steps.check.outputs.exists == '0'
         run: |
           gh pr create \
             --base master \
-            --head ${{ github.ref_name }} \
+            --head "${{ github.ref_name }}" \
             --title "Auto PR: ${{ github.ref_name }}" \
-            --body "🚀 Automatically created PR"
+            --body "🚀 Automatically created PR from branch ${{ github.ref_name }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
