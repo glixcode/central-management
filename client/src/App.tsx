@@ -11,6 +11,7 @@ import Register from './pages/Register/register';
 // Protected Pages
 import AdminDashboard from './pages/admin/Dashboard';
 import ResidentPortal from './pages/resident/Portal';
+import type { JSX } from 'react';
 
 const ProtectedRoute = ({ children, allowedRoles }: { children: JSX.Element, allowedRoles: string[] }) => {
   const { user, loading } = useAuth();

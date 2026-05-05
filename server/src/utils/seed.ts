@@ -14,7 +14,7 @@ export const seedDatabase = async (req: Request, res: Response): Promise<void> =
     console.log('Seeding database...');
 
     // Ensure roles exist
-    const roles = ['SUPER_ADMIN', 'BARANGAY_ADMIN', 'STAFF', 'RESIDENT'];
+    const roles = ['SUPER_ADMIN', 'MUNICIPAL_ADMIN', 'BARANGAY_ADMIN', 'MUNICIPAL_STAFF','BARANGAY_STAFF', 'RESIDENT'];
     const roleDocs: Record<string, any> = {};
     for (const r of roles) {
       let roleDoc = await UserRole.findOne({ roleName: r });
@@ -72,8 +72,13 @@ export const seedDatabase = async (req: Request, res: Response): Promise<void> =
         barangayId: testBarangay._id
       },
       {
-        email: 'staff@test.com',
-        role: roleDocs['STAFF'],
+        email: 'municipalstaff@test.com',
+        role: roleDocs['MUNICIPAL_STAFF'],
+        barangayId: testBarangay._id
+      },
+      {
+        email: 'barangaystaff@test.com',
+        role: roleDocs['BARANGAY_STAFF'],
         barangayId: testBarangay._id
       },
       {
