@@ -1,0 +1,199 @@
+/* Base */
+.portal {
+  font-family: 'Inter', sans-serif;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+/* Header */
+.portal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.portal-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Gradient Button */
+.logout-btn {
+  background: linear-gradient(135deg, #A05AFF, #9E58FF);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Container */
+.portal-container {
+  padding: 16px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Welcome */
+.welcome h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.welcome p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 14px;
+  color: white;
+  font-weight: 500;
+}
+
+/* Gradient Cards */
+.card:nth-child(1) {
+  background: linear-gradient(135deg, #A05AFF, #9E58FF);
+}
+.card:nth-child(2) {
+  background: linear-gradient(135deg, #1BCFB4, #4BCBEB);
+}
+.card:nth-child(3) {
+  background: linear-gradient(135deg, #4BCBEB, #A05AFF);
+}
+.card:nth-child(4) {
+  background: linear-gradient(135deg, #FE9496, #A05AFF);
+}
+
+.card strong {
+  display: block;
+  font-size: 22px;
+  margin-top: 5px;
+}
+
+/* Sections */
+.section {
+  margin-top: 24px;
+}
+
+.section h3 {
+  font-size: 15px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.action-card {
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #eee;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.action-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-color: #A05AFF;
+}
+
+.action-card strong {
+  display: block;
+  font-size: 14px;
+}
+
+.action-card p {
+  font-size: 12px;
+  color: #888;
+}
+
+/* List */
+.list {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.ref {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Status Pills */
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  height: max-content;
+}
+
+.status.pending {
+  background: rgba(254, 148, 150, 0.15);
+  color: #FE9496;
+}
+
+.status.approved {
+  background: rgba(75, 203, 235, 0.15);
+  color: #4BCBEB;
+}
+
+.status.completed {
+  background: rgba(27, 207, 180, 0.15);
+  color: #1BCFB4;
+}
+
+/* Announcement */
+.announcement {
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #eee;
+}
+
+/* Tablet/Desktop */
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .actions {
+    flex-direction: row;
+  }
+
+  .action-card {
+    flex: 1;
+  }
+}
