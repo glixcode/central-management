@@ -1,9 +1,9 @@
-name: Auto Create PR on New Branch
+name: Auto Create PR on Push
 
 on:
   push:
-    branches:
-      - '*'
+    branches-ignore:
+      - master
 
 jobs:
   create-pr:
