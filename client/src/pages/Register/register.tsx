@@ -277,16 +277,16 @@ const Register = () => {
                     style={{
                         padding: 14,
                         outline: "none",
-                        border: "none",
+                        border:'1px solid #ddd',
                         borderRadius: 8,
                         cursor: loading ? "not-allowed" : "pointer",
                         marginTop: 12,
                         backgroundColor: loading ? "#9ca3af" : "var(--purple-primary)",
-                        color: "white",
+                        color: "black",
                         fontWeight: 700,
                         fontSize: 16,
                         transition: 'background-color 0.2s',
-                        boxShadow: '0 4px 6px rgba(160, 90, 255, 0.25)'
+                        boxShadow: '0 4px 6px rgba(160, 90, 255, 0.25)',
                     }}
                     onMouseOver={(e) => { if (!loading) e.currentTarget.style.backgroundColor = 'var(--purple-secondary)' }}
                     onMouseOut={(e) => { if (!loading) e.currentTarget.style.backgroundColor = 'var(--purple-primary)' }}
