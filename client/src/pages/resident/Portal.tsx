@@ -79,7 +79,7 @@ const ResidentPortal = () => {
                   <p className="ref">Ref: BRGY-2026-00{i + 1}</p>
                 </div>
                 <span className={`status ${req.status.toLowerCase()}`}>
-                  {req.status}
+                  <b>{req.status}</b>
                 </span>
               </div>
             ))}
