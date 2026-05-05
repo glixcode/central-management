@@ -1,38 +1,97 @@
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
+import './ResidentPortal.css';
 
 const ResidentPortal = () => {
   const { user, logout } = useAuth();
 
+  const requests = [
+    { type: 'Barangay Clearance', status: 'Pending' },
+    { type: 'Certificate of Indigency', status: 'Approved' },
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
-        <div className="flex justify-between items-center border-b pb-4 mb-4">
-          <h1 className="text-2xl font-bold text-gray-800">Resident Portal</h1>
-          <button
-            onClick={logout}
-            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
-          >
-            Logout
-          </button>
+    <div className="portal">
+      {/* Header */}
+      <div className="portal-header">
+        <h1>Barangay Portal</h1>
+        <button className="logout-btn" onClick={logout}>
+          Logout
+        </button>
+      </div>
+
+      <div className="portal-container">
+        {/* Welcome */}
+        <div className="welcome">
+          <h2>Welcome</h2>
+          <p>{user?.email}</p>
         </div>
 
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Welcome to your Barangay Portal</h2>
-          <p className="text-gray-600">You are logged in as <span className="font-medium text-blue-600">{user?.email}</span></p>
+        {/* Stats */}
+        <div className="stats">
+          <div className="card">
+            <span>Active</span>
+            <strong>2</strong>
+          </div>
+          <div className="card">
+            <span>Completed</span>
+            <strong>5</strong>
+          </div>
+          <div className="card">
+            <span>Appointments</span>
+            <strong>1</strong>
+          </div>
+          <div className="card">
+            <span>Notifications</span>
+            <strong>3</strong>
+          </div>
+        </div>
 
-          <div className="mt-8">
-            <h3 className="font-bold text-lg border-b pb-2 mb-4">Request a Document</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <button className="p-4 border rounded hover:bg-blue-50 hover:border-blue-300 transition text-left">
-                <span className="block font-bold">Barangay Clearance</span>
-                <span className="text-sm text-gray-500">Request for employment or general purposes.</span>
-              </button>
-              <button className="p-4 border rounded hover:bg-blue-50 hover:border-blue-300 transition text-left">
-                <span className="block font-bold">Certificate of Indigency</span>
-                <span className="text-sm text-gray-500">Request for financial assistance or scholarships.</span>
-              </button>
-            </div>
+        {/* Actions */}
+        <div className="section">
+          <h3>Quick Actions</h3>
+          <div className="actions">
+            <button className="action-card">
+              <strong>Request Document</strong>
+              <p>Clearance, Indigency, Residency</p>
+            </button>
+
+            <button className="action-card">
+              <strong>Book Appointment</strong>
+              <p>Schedule visit or pickup</p>
+            </button>
+
+            <button className="action-card">
+              <strong>Update Profile</strong>
+              <p>Request info changes</p>
+            </button>
+          </div>
+        </div>
+
+        {/* Requests */}
+        <div className="section">
+          <h3>Recent Requests</h3>
+          <div className="list">
+            {requests.map((req, i) => (
+              <div key={i} className="list-item">
+                <div>
+                  <strong>{req.type}</strong>
+                  <p className="ref">Ref: BRGY-2026-00{i + 1}</p>
+                </div>
+                <span className={`status ${req.status.toLowerCase()}`}>
+                  {req.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Announcements */}
+        <div className="section">
+          <h3>Announcements</h3>
+          <div className="announcement">
+            <strong>Community Clean-Up Drive</strong>
+            <p>Saturday 7AM. Volunteers welcome.</p>
           </div>
         </div>
       </div>
