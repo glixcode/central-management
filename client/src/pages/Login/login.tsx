@@ -61,7 +61,7 @@ const Login = () => {
                     <input type="password" onChange={(e) => handleChange('password', e.target.value)} placeholder="****" autoComplete="off" style={{ width: '100%', padding: '12px 16px', borderRadius: 8, outline: 'none', border: '1px solid #d1d5db', transition: 'border-color 0.2s', boxSizing: 'border-box' }} onFocus={(e) => e.target.style.borderColor = 'var(--purple-primary)'} onBlur={(e) => e.target.style.borderColor = '#d1d5db'} />
                 </div>
                 <button
-                    style={{ padding: '14px', outline: 'none', border: 'none', borderRadius: '8px', cursor: isLoading ? 'not-allowed' : 'pointer', marginTop: 20, backgroundColor: isLoading ? '#9ca3af' : 'var(--purple-primary)', color: 'white', fontWeight: 700, fontSize: '16px', transition: 'background-color 0.2s', boxShadow: '0 4px 6px rgba(160, 90, 255, 0.25)' }}
+                    style={{ padding: '14px', outline: 'none', border: '1px solid #ddd', borderRadius: '8px', cursor: isLoading ? 'not-allowed' : 'pointer', marginTop: 20, backgroundColor: isLoading ? '#9ca3af' : 'var(--purple-primary)', color: 'black', fontWeight: 700, fontSize: '16px', transition: 'background-color 0.2s', boxShadow: '0 4px 6px rgba(160, 90, 255, 0.25)' }}
                     type="submit"
                     disabled={isLoading}
                     onMouseOver={(e) => { if (!isLoading) e.currentTarget.style.backgroundColor = 'var(--purple-secondary)' }}
