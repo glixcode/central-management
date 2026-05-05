@@ -1,14 +1,13 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import api from "../../services/api";
 
 type Account = {
     email: string,
     password: string,
 }
-const apiBaseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9000/api';
 
 const Login = () => {
     const [form, setForm] = useState<Account>({
@@ -27,9 +26,8 @@ const Login = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post(`${apiBaseURL}/login`, form);
+            const response = await api.post(`login`, form);
             login(response.data.token, response.data.user);
-            alert()
             navigate("/admin");
         } catch (err: any) {
             console.error(err);

@@ -2,7 +2,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const AdminDashboard = () => {
   const { user, logout } = useAuth();
-
+  console.log({user});
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md p-6">
