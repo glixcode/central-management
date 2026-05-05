@@ -13,7 +13,7 @@ const Services = () => {
   const [lists, setLists] = useState<ListType[]>([]);
 
   const fetchData = async () :Promise<ListType[]> => {
-    const response = await axios.get<ListType[]>(`${apiBaseURL}services/getServices`);
+    const response = await axios.get<ListType[]>(`${apiBaseURL}/services/getServices`);
     return response.data;
   }
 
